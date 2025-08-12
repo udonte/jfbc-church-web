@@ -1,17 +1,21 @@
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiArrowRight, FiClock, FiMapPin } from "react-icons/fi";
-import Image1 from "@/assets/images/woman-in-orange-coat-with-black-and-brown-scarf-5418305@2x.png";
-import Image2 from "@/assets/images/terren-hurst-0Id3xr5_Slk-unsplash.jpg";
-import Image3 from "@/assets/images/terren-hurst-Sghh8m8lM6Y-unsplash.jpg";
 import ActionButton from "../ui/ActionButton";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  backgroundImages: string[];
+  subtext: string;
+  title: string;
+}
+
+const HeroSection = ({
+  backgroundImages,
+  subtext,
+  title,
+}: HeroSectionProps) => {
   const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
   const verseControls = useAnimation();
-
-  // Sample worship background images
-  const backgroundImages = [Image1, Image2, Image3];
 
   const bibleVerses = [
     "For God so loved the world that he gave his one and only Son - John 3:16",
@@ -43,32 +47,36 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen w-full mt-22">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0  z-0">
-        <motion.img
-          src={backgroundImages[0]}
-          alt="Worship service"
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={{ opacity: 0.8 }}
-          animate={{
-            opacity: 1,
-            transition: { duration: 1.5 },
-          }}
-        />
+      {/* Background Image with Crossfade */}
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentVerseIndex}
+            src={backgroundImages[currentVerseIndex]}
+            alt="Worship service"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+          />
+        </AnimatePresence>
       </div>
 
       {/* Content Container */}
       <div className="relative z-10 h-full flex flex-col justify-center">
         <div className="container mx-auto px-6 lg:px-24">
           <div className="max-w-2xl">
+            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white mb-8 uppercase tracking-wider"
+              className="text-lg md:text-xl text-white mb-8 uppercase tracking-wider animate-pulse transition-colors"
             >
-              Welcome to Our Church
+              {subtext}
             </motion.p>
+
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +84,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase"
             >
-              Experience Faith Hope, and Love
+              {title}
             </motion.h1>
 
             {/* Service Times */}
@@ -139,7 +147,7 @@ const HeroSection = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentVerseIndex}
-                  className="absolute left-0 right-0 lg:right-0  text-white text-lg"
+                  className="absolute left-0 right-0 text-white text-lg"
                 >
                   <span className="text-primary/80">—</span>{" "}
                   {bibleVerses[currentVerseIndex]}
@@ -149,24 +157,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Scrolling Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="animate-bounce flex flex-col items-center">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-white rounded-full mt-2"
-            />
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 };

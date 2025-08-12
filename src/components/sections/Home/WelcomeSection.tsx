@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import PastorImage from "@/assets/images/pastor-portrait.jpg"; // Replace with your image path
+import PastorImage from "@/assets/images/revd-odusanya.jpg";
 import ActionButton from "@/components/ui/ActionButton";
 
 const WelcomeSection = () => {

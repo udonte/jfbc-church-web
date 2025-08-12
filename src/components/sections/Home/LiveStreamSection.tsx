@@ -59,8 +59,8 @@ const LiveStreamSection = () => {
                       {isLive ? "LIVE NOW" : "OFFLINE"}
                     </span>
                   </div>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
-                    {isLive ? "Streaming" : `Next: ${nextService}`}
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm block">
+                    {isLive ? "Streaming" : ` ${nextService}`}
                   </span>
                 </div>
 

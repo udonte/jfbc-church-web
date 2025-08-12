@@ -42,8 +42,6 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Sermons", path: "/sermons" },
     { name: "Events", path: "/events" },
-    { name: "Ministries", path: "/ministries" },
-    { name: "Give", path: "/give" },
   ];
 
   const mobileMenuVariants = {
@@ -114,7 +112,7 @@ const Navbar = () => {
               page="/join-us"
               // className="ml-4"
             >
-              JOIN US
+              GIVE
             </ActionButton>
           </div>
 
