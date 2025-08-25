@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import { FiCalendar } from "react-icons/fi";
+import SundayMeeting from "@assets/images/Home/meetings/sunday-service.jpg";
+import Midweek from "@assets/images/Home/meetings/midweek.jpg";
+import Counsel from "@assets/images/Home/meetings/counsel.jpg";
+import Evangelism from "@assets/images/Home/meetings/evangelism.jpg";
+
 // Sample event data - replace with API call in production
 const servicesData = [
   {
@@ -7,28 +12,28 @@ const servicesData = [
     title: "Sunday Worship Service",
     time: "Sun, 9:00 AM",
     description: "Join us for powerful worship and biblical teaching",
-    image: "/images/event-worship.jpg",
+    image: SundayMeeting,
   },
   {
     id: 2,
     title: "Prayer & Counselling",
     time: "Wed, 5:00 PM",
     description: "Sharing bible based solutions to issues",
-    image: "/images/event-outreach.jpg",
+    image: Counsel,
   },
   {
     id: 3,
     title: "Midweek Bible Study",
     time: "Thur, 6:00 PM",
     description: "Deep dive into the bible",
-    image: "/images/event-bible-study.jpg",
+    image: Midweek,
   },
   {
     id: 4,
     title: "Evangelism",
     time: "Sat, 11:00 AM",
     description: "Spreading the Gospel of our Lord Jesus",
-    image: "/images/event-youth.jpg",
+    image: Evangelism,
   },
 ];
 

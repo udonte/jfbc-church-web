@@ -5,7 +5,7 @@ import ActionButton from "@/components/ui/ActionButton";
 
 const WelcomeSection = () => {
   return (
-    <section className="relative py-24 bg-white">
+    <section className="relative py-24 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-24">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
           {/* Pastor's Photo */}
@@ -42,7 +42,7 @@ const WelcomeSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-2/3"
           >
-            <h2 className="text-3xl md:text-4xl text-center md:text-left font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl text-center md:text-left font-bold text-primary mb-6">
               A Warm Welcome From Our Pastor
             </h2>
 

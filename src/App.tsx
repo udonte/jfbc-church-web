@@ -6,6 +6,7 @@ import Sermons from "@/pages/sermons";
 import Events from "@/pages/events";
 import Ministries from "@/pages/ministries";
 import Give from "@/pages/give";
+import Contact from "@/pages/contact";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/ministries" element={<Ministries />} />
           <Route path="/give" element={<Give />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </Router>

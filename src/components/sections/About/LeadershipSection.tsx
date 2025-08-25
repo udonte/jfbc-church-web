@@ -6,27 +6,27 @@ import MrsOdusanya from "@/assets/images/mrs-odusanya.jpg";
 
 const leadership = [
   {
-    name: "Pastor Mrs Morenikeji Odusanya",
-    role: "First Lady & Women's Ministry Leader",
+    name: "Mrs Morenikeji Odusanya",
+    role: "Pastor & Women's Ministry Leader",
     bio: "Mrs Odusanya oversees our women's discipleship programs and counseling ministry. A trained educator, she brings wisdom and compassion to her leadership role.",
     image: MrsOdusanya,
   },
   {
     name: "Pastor Ifeanyi Nkem",
     role: "Assistant Pastor",
-    bio: "Pastor David coordinates our local and international missions programs. Under his leadership, we've planted 3 churches in rural communities.",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur consequatur inventore est possimus saepe beatae cupiditate dolore magnam dolorem, corporis consequuntur ",
     image: "/leadership/pastor-david.jpg",
   },
   {
     name: "Pastor Segun Fagbemi",
     role: "Assistant Pastor",
-    bio: "Pastor Michael joined JFBC in 2005 and oversees church operations and small group ministries. He's passionate about organizational excellence in the church.",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur consequatur inventore est possimus saepe beatae cupiditate dolore magnam dolorem, corporis consequuntur ",
     image: "/leadership/pastor-michael.jpg",
   },
   {
     name: "Pastor Tope Afolabi",
     role: "Assistant Pastor",
-    bio: "A dynamic teacher and mentor, Pastor Sarah leads our thriving youth ministry with over 200 active members. She holds a degree in Christian Education.",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur consequatur inventore est possimus saepe beatae cupiditate dolore magnam dolorem, corporis consequuntur ",
     image: "/leadership/pastor-sarah.jpg",
   },
 ];
@@ -82,8 +82,8 @@ const LeadershipSection = () => {
               </h2>
               <div className="prose text-gray-600 space-y-4">
                 <p>
-                  With over three decades of faithful ministry, Revd Odusanya
-                  has led JFBC from a small gathering to a thriving congregation
+                  With over four decades of faithful ministry, Revd Odusanya has
+                  led JFBC from a small gathering to a thriving congregation
                   impacting communities.
                 </p>
                 <p>
@@ -98,12 +98,7 @@ const LeadershipSection = () => {
                 </p>
               </div>
               <div className="mt-8">
-                <ActionButton
-                  page="/#"
-                  variant="primary"
-                  size="lg"
-                  icon={<FiMail />}
-                >
+                <ActionButton variant="primary" size="lg" icon={<FiMail />}>
                   Contact Revd Odusanya
                 </ActionButton>
               </div>
@@ -139,16 +134,6 @@ const LeadershipSection = () => {
                 </h3>
                 <p className="text-primary font-medium mb-4">{leader.role}</p>
                 <p className="text-gray-600 mb-6">{leader.bio}</p>
-
-                <ActionButton
-                  page={`/contact?subject=Contact ${leader.name.split(" ")[0]}`}
-                  variant="outline"
-                  size="sm"
-                  icon={<FiMail />}
-                  fullWidth
-                >
-                  Contact {leader.name.split(" ")[0]}
-                </ActionButton>
               </div>
             </motion.div>
           ))}

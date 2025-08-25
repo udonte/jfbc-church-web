@@ -1,6 +1,6 @@
-import ActionButton from "@/components/ui/ActionButton";
 import { motion } from "framer-motion";
 import { FaPray } from "react-icons/fa";
+import UnitBg from "@assets/images/Home/unit-bg.jpg";
 import {
   FiMusic,
   FiFilm,
@@ -49,7 +49,7 @@ const churchUnits = [
     name: "Youth Group",
     icon: <FiActivity size={32} />,
     description:
-      "Dynamic community for young adults (ages 13-25) with Bible studies and activities",
+      "Dynamic community for young adults with Bible studies and activities",
     color: "bg-yellow-600",
   },
   {
@@ -64,7 +64,7 @@ const churchUnits = [
     name: "Ushering Unit",
     icon: <FiUserCheck size={32} />,
     description:
-      "Friendly faces creating welcoming atmosphere and assisting during services",
+      "Friendly faces creating a welcoming atmosphere and assisting during services",
     color: "bg-indigo-600",
   },
   {
@@ -76,10 +76,22 @@ const churchUnits = [
   },
 ];
 
-const UnitHighlights = () => {
+const ChurchUnits = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6 lg:px-24">
+    <section className="relative py-20">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/80" />
+        <img
+          src={UnitBg}
+          alt="Church community praying"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-24">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,11 +100,12 @@ const UnitHighlights = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Church Ministries
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Church Units
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover where you can serve and grow in our church community
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            See where you can serve and grow in our church community. Not sure
+            where you fit? We'll help you find your place!
           </p>
         </motion.div>
 
@@ -110,7 +123,7 @@ const UnitHighlights = () => {
               <div className="p-6 flex flex-col items-center text-center h-full">
                 {/* Icon */}
                 <div
-                  className={`mb-4 p-4 rounded-full bg-opacity-10 ${unit.color} text-white`}
+                  className={`mb-4 p-4 rounded-full bg-opacity-10 ${unit.color} text-white animate-pulse transition-all duration-1000`}
                 >
                   {unit.icon}
                 </div>
@@ -122,16 +135,6 @@ const UnitHighlights = () => {
                 <p className="text-gray-600 mb-6 flex-grow">
                   {unit.description}
                 </p>
-
-                {/* Learn More Button */}
-                <ActionButton
-                  page={`/ministries/${unit.id}`}
-                  variant="outline"
-                  size="sm"
-                  className="mt-auto"
-                >
-                  Learn More
-                </ActionButton>
               </div>
             </motion.div>
           ))}
@@ -148,13 +151,10 @@ const UnitHighlights = () => {
           <p className="text-gray-600 mb-4">
             Not sure where you fit? We'll help you find your place!
           </p>
-          <ActionButton page="/ministries" variant="primary">
-            Explore All Ministries
-          </ActionButton>
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default UnitHighlights;
+export default ChurchUnits;

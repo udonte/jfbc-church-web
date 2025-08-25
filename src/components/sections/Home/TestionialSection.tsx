@@ -12,24 +12,24 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Member since 2018",
+    name: "Pastor Nkem",
+    role: "Assistant Pastor",
     quote:
-      "This church became my family when I moved to the city. The love and support I've received transformed my life.",
+      "This church became my family when the day we first visited. The love and support I've received transformed my life.",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Youth Group Leader",
+    name: "Mrs Odusanya",
+    role: "Pastor",
     quote:
       "Watching our teens grow in faith through this community has been the greatest blessing of my life.",
   },
   {
     id: 3,
-    name: "Grace & David Okafor",
-    role: "Married Couple",
+    name: "Bro Steven",
+    role: "Member since 2011",
     quote:
-      "We found each other and God's purpose for our marriage through this church family.",
+      "We enjoy coming to the church every sunday. The worship atmosphere is really gloriying. ",
   },
 ];
 

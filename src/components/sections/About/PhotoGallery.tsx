@@ -134,7 +134,7 @@ const PhotoGallery = () => {
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <div className="flex flex-col items-center">
                   <FiEye className="text-white text-3xl" />
-                  <p className="text-xs md:text-sm my-2 text-white block">
+                  <p className="text-xs md:text-sm my-2 text-white block animate-pulse duration-8000 transition">
                     Click to view
                   </p>
                 </div>

@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const recentServices = [
   {
     id: "x8Y3p9q",
-    youtubeId: "d4U78Z6O13Y",
+    youtubeId: "7D070TW4pXQ",
   },
   {
     id: "y5Z2r7s",
-    youtubeId: "gExAQKi1JZU",
+    youtubeId: "5oF0XMKtNAA",
   },
   {
     id: "z9W4t6v",
-    youtubeId: "F-_bTfBYFYw",
+    youtubeId: "UpAi4d5PuQk",
   },
   {
     id: "z9W4t6v",
-    youtubeId: "87AHqzKEuP4",
+    youtubeId: "d4U78Z6O13Y",
   },
 ];
 
@@ -107,19 +107,6 @@ const ServiceSpotlight = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Service Library CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
-        >
-          <ActionButton page="/Services" variant="primary" className="mx-auto">
-            Explore Service Library
-          </ActionButton>
-        </motion.div>
       </div>
     </section>
   );

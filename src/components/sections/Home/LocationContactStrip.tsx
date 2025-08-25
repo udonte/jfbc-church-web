@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  FiMapPin,
-  FiClock,
-  FiPhone,
-  FiMail,
-  FiArrowRight,
-} from "react-icons/fi";
+import { FiMapPin, FiPhone, FiMail, FiArrowRight } from "react-icons/fi";
 import { FaInstagram, FaYoutube, FaTelegram } from "react-icons/fa";
 import ActionButton from "@/components/ui/ActionButton";
 
@@ -55,35 +49,6 @@ const LocationContactStrip = () => {
                   </p>
                 </div>
               </div>
-
-              {/* Service Times */}
-              <div className="flex items-start">
-                <div className="p-3 bg-primary/10 rounded-lg mr-4">
-                  <FiClock className="text-primary" size={20} />
-                </div>
-                <div>
-                  <p className="text-gray-700 font-medium mb-1">
-                    Service Times
-                  </p>
-                  <div className="space-y-1">
-                    <p className="text-gray-600 flex flex-col md:flex-row md:items-center gap-1">
-                      <span className="hidden md:inline-block w-2 h-2 bg-primary rounded-full mr-2"></span>
-                      <span className="font-semibold inline md:block">
-                        Sunday:
-                      </span>
-                      9:00 AM
-                    </p>
-                    <p className="text-gray-600 flex flex-col md:flex-row md:items-center gap-1">
-                      <span className="hidden md:inline-block w-2 h-2 bg-primary rounded-full mr-2"></span>
-                      <span className="font-semibold inline md:block">
-                        <span>Thursday:</span>
-                      </span>{" "}
-                      <span>6:00 PM (Midweek Service)</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Contact Methods */}
               <div className="grid grid-cols-1 sm:grid-cols-1 gap-6 pt-2">
                 <div className="flex items-start">

@@ -41,7 +41,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Sermons", path: "/sermons" },
-    { name: "Events", path: "/events" },
+    { name: "Join Us", path: "/contact" },
   ];
 
   const mobileMenuVariants = {
@@ -109,7 +109,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <ActionButton
-              page="/join-us"
+              page="/give "
               // className="ml-4"
             >
               GIVE
@@ -154,10 +154,10 @@ const Navbar = () => {
                 <motion.div key={link.name} variants={navItemVariants}>
                   <Link
                     to={link.path}
-                    className={`block px-3 py-3 rounded-md text-base font-medium uppercase ${
+                    className={`block px-3 py-3 text-base font-medium uppercase w-fit  ${
                       location.pathname === link.path
-                        ? "bg-primary/10 text-primary"
-                        : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                        ? "bg-primary/10 text-primary border-b-2  border-secondary"
+                        : "text-gray-300 hover:bg-gray-800 hover:border-b-2 border-secondary"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -167,10 +167,10 @@ const Navbar = () => {
               ))}
               <motion.div variants={navItemVariants} className="px-3 py-2">
                 <ActionButton
-                  page="/join-us"
+                  page="/give"
                   // onClick={() => setIsOpen(false)}
                 >
-                  JOIN US
+                  GIVE
                 </ActionButton>
               </motion.div>
             </motion.div>

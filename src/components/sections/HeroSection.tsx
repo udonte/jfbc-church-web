@@ -21,6 +21,9 @@ const HeroSection = ({
     "For God so loved the world that he gave his one and only Son - John 3:16",
     "I can do all things through Christ who strengthens me - Philippians 4:13",
     "The Lord is my shepherd, I lack nothing - Psalm 23:1",
+    "Trust in the LORD with all thine heart; and lean not unto thine own understanding. - Proverbs 3:5",
+    "In all thy ways acknowledge him, and he shall direct thy paths. - Proverbs 3:6",
+    "Not of works, lest any man should boast. - Ephesians 2:9",
   ];
 
   // Auto-rotate background images and verses
@@ -40,7 +43,7 @@ const HeroSection = ({
             transition: { duration: 0.5 },
           });
         });
-    }, 8000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [bibleVerses.length, verseControls]);
@@ -66,7 +69,7 @@ const HeroSection = ({
       {/* Content Container */}
       <div className="relative z-10 h-full flex flex-col justify-center">
         <div className="container mx-auto px-6 lg:px-24">
-          <div className="max-w-2xl">
+          <div className="w-full flex flex-col md:items-center">
             {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -82,7 +85,7 @@ const HeroSection = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 titlecase font-serif italic md:text-center"
             >
               {title}
             </motion.h1>
@@ -124,6 +127,7 @@ const HeroSection = ({
                 Join Us This Sunday
               </ActionButton>
               <ActionButton
+                className=""
                 variant="outline"
                 onClick={() =>
                   window.open(
