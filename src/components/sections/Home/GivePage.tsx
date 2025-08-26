@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { FiCopy, FiCheck, F } from "react-icons/fi";
 import { FaCashRegister } from "react-icons/fa";
 
 const GivePage = () => {

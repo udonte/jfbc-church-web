@@ -1,5 +1,5 @@
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { FiArrowRight, FiClock, FiMapPin } from "react-icons/fi";
 import ActionButton from "../ui/ActionButton";
 
@@ -9,61 +9,114 @@ interface HeroSectionProps {
   title: string;
 }
 
+// Preload images for better performance
+const preloadImages = (imageUrls: string[]) => {
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+};
+
 const HeroSection = ({
   backgroundImages,
   subtext,
   title,
 }: HeroSectionProps) => {
   const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const verseControls = useAnimation();
 
-  const bibleVerses = [
-    "For God so loved the world that he gave his one and only Son - John 3:16",
-    "I can do all things through Christ who strengthens me - Philippians 4:13",
-    "The Lord is my shepherd, I lack nothing - Psalm 23:1",
-    "Trust in the LORD with all thine heart; and lean not unto thine own understanding. - Proverbs 3:5",
-    "In all thy ways acknowledge him, and he shall direct thy paths. - Proverbs 3:6",
-    "Not of works, lest any man should boast. - Ephesians 2:9",
-  ];
+  // Memoize Bible verses to prevent unnecessary re-renders
+  const bibleVerses = useMemo(
+    () => [
+      "For God so loved the world that he gave his one and only Son - John 3:16",
+      "I can do all things through Christ who strengthens me - Phil 4:13",
+      "The Lord is my shepherd, I lack nothing - Psalm 23:1",
+      "Trust in the LORD with all thine heart; and lean not unto thine own understanding. - Prov 3:5",
+      "In all thy ways acknowledge him, and he shall direct thy paths. - Prov 3:6",
+      "Not of works, lest any man should boast. - Eph 2:9",
+    ],
+    []
+  );
 
-  // Auto-rotate background images and verses
+  // Preload background images on component mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVerseIndex((prev) => (prev + 1) % bibleVerses.length);
-      verseControls
-        .start({
-          opacity: 0,
-          y: 20,
-          transition: { duration: 0.3 },
-        })
-        .then(() => {
-          verseControls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5 },
-          });
-        });
-    }, 5000);
+    setIsMounted(true);
+    preloadImages(backgroundImages);
 
-    return () => clearInterval(interval);
-  }, [bibleVerses.length, verseControls]);
+    return () => setIsMounted(false);
+  }, [backgroundImages]);
+
+  // Optimized verse animation with useCallback
+  const animateVerseChange = useCallback(async () => {
+    if (!isMounted) return;
+
+    try {
+      await verseControls.start({
+        opacity: 0,
+        y: 20,
+        transition: { duration: 0.3 },
+      });
+
+      setCurrentVerseIndex((prev) => (prev + 1) % bibleVerses.length);
+
+      await verseControls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      });
+    } catch (error) {
+      console.error("Verse animation error:", error);
+    }
+  }, [verseControls, bibleVerses.length, isMounted]);
+
+  // Auto-rotate background images and verses with cleanup
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const interval = setInterval(animateVerseChange, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [animateVerseChange, isMounted]);
+
+  // Fallback for image loading errors
+  const handleImageError = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+      const target = e.target as HTMLImageElement;
+      target.style.display = "none";
+    },
+    []
+  );
+
+  // Get current background image with error handling
+  const currentBackground =
+    backgroundImages[currentVerseIndex % backgroundImages.length] ||
+    backgroundImages[0];
 
   return (
     <section className="relative h-screen w-full mt-22">
-      {/* Background Image with Crossfade */}
+      {/* Background Image with Crossfade - Optimized */}
       <div className="absolute inset-0 z-0 bg-black">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentVerseIndex}
-            src={backgroundImages[currentVerseIndex]}
+            src={currentBackground}
             alt="Worship service"
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5 }}
+            loading="eager"
+            onError={handleImageError}
+            decoding="async"
           />
         </AnimatePresence>
+
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
       </div>
 
       {/* Content Container */}
@@ -75,7 +128,7 @@ const HeroSection = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white mb-8 uppercase tracking-wider animate-pulse transition-colors"
+              className="text-lg md:text-xl text-white mb-8 uppercase tracking-wider"
             >
               {subtext}
             </motion.p>
@@ -117,7 +170,7 @@ const HeroSection = ({
               className="flex flex-col sm:flex-row gap-4 my-12"
             >
               <ActionButton
-                page="/about"
+                page="/contact"
                 icon={<FiArrowRight />}
                 iconPosition="right"
                 variant="secondary"
@@ -127,7 +180,7 @@ const HeroSection = ({
                 Join Us This Sunday
               </ActionButton>
               <ActionButton
-                className=""
+                className="text-secondary/50"
                 variant="outline"
                 onClick={() =>
                   window.open(
@@ -141,17 +194,21 @@ const HeroSection = ({
               </ActionButton>
             </motion.div>
 
-            {/* Bible Verse Ticker */}
+            {/* Bible Verse Ticker - Optimized */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="relative h-12 overflow-hidden"
+              className="relative h-12 overflow-hidden mt-8 max-w-2xl"
             >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentVerseIndex}
-                  className="absolute left-0 right-0 text-white text-lg"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-white text-lg text-center"
                 >
                   <span className="text-primary/80">—</span>{" "}
                   {bibleVerses[currentVerseIndex]}

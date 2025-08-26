@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import SermonPoint1 from "@/assets/images/sermon points/semon-point1.jpg";
 import SermonPoint2 from "@/assets/images/sermon points/semon-point2.jpg";
@@ -172,22 +171,6 @@ const SermonPoints = () => {
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-oghosa-gold/10 rounded-full blur-xl translate-x-1/2 translate-y-1/2"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Animated header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-oghosa-green mb-4">
-            Sermon Keypoints
-          </h2>
-          <p className="font-dmsans text-lg text-gray-600 max-w-3xl mx-auto">
-            See some takeways from some of our sermons
-          </p>
-        </motion.div>
-
         {/* Partner grid */}
         <div className="w-full overflow-hidden">
           <div className="bg-black">

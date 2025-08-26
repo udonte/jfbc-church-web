@@ -126,8 +126,8 @@ const MonthlyBanner = ({ content }: MonthlyBannerProps) => {
                       <RiSpeakAiFill />
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">
-                    Monthly Confession
+                  <h3 className="text-xl font-semibold text-primary mb-4 animate-pulse transition duration-300">
+                    Confession
                   </h3>
                   <p className="text-gray-700 text-lg leading-relaxed italic">
                     "{content.confession}"
@@ -149,7 +149,7 @@ const MonthlyBanner = ({ content }: MonthlyBannerProps) => {
                       <WiDayRainWind />
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">
+                  <h3 className="text-xl font-semibold text-primary mb-4 animate-pulse transition duration-300">
                     Prosperity Thoughts
                   </h3>
                   <p className="text-gray-700 text-lg leading-relaxed">
@@ -172,8 +172,8 @@ const MonthlyBanner = ({ content }: MonthlyBannerProps) => {
                       <FaCross />
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary mb-4">
-                    Soul Winning Verse
+                  <h3 className="text-xl font-semibold text-primary mb-4 animate-pulse transition duration-300">
+                    Soul Winning
                   </h3>
                   <p className="text-gray-700 text-lg leading-relaxed italic mb-4">
                     "{content.soulWinningVerse.text}"
