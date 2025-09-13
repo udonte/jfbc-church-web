@@ -1,13 +1,13 @@
-import MonthBanner from "@assets/images/august-fruitfulness.jpg";
+import MonthBanner from "@assets/images/month-picture.jpg";
 
 export const monthlyContent = {
-  month: "August",
+  month: "September",
   year: 2025,
   bannerImage: MonthBanner,
   confession:
-    "2025 is our year of divine presence. August is our month of fruitfulness. I will not walk away in the paths and ways of people that do not know God. I give myself to study and obey the word of God. I am abiding in the Lord Jesus Christ. I am fruitful. I will become more fruitful. I will have a results in every area of life. Barreness, failure and stagnation are far from from me. I ill succeed and prosper. I will glory to my father. It is well with me. I refuse to be troubled. I wll be a good member of our church serving him with all my strength, and manifesting His glory.",
+    "2025 is our year of divine presence. September is our month of the harvest of miracles. Jesus is the miracle worker. He is my lord and savior. I am a miracle child. His saving power works in me. He said I will do the same works that he did and even greater. I believe his word. Jesus is still the same. I declare I am a vessel for signs and wonder. Mighty signs accompany me. The power of God is working in my life I have all needs met.  I am blessed, lifted and favoured. I will be a blessing to everyone I meet. This month - miracles, miracles and miracles occur daily in my life in Jesus name. I ill be a good member of our church, serving him with all my strength and manifesting His glory.",
   prosperityThoughts:
-    "He will become like a tree that grows besides streams of water. It gives its fruit at the right season. Its leaves do not fail off. Everything that person does will have good results. - Psalms 1:3",
+    "Jesus said unto him, if thou cants believe, all things are possible to him that beieveth - Mark 9:23",
   soulWinningVerse: {
     text: "Preach the word; be instant in season, out of season...",
     reference: "2 Timothy 4:2",

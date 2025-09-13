@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaCross } from "react-icons/fa";
 import { RiSpeakAiFill } from "react-icons/ri";
 import { WiDayRainWind } from "react-icons/wi";
@@ -24,18 +24,6 @@ const MonthlyBanner = ({ content }: MonthlyBannerProps) => {
   const [currentTab, setCurrentTab] = useState<
     "confession" | "prosperity" | "soulWinning"
   >("confession");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTab((prev) => {
-        if (prev === "confession") return "prosperity";
-        if (prev === "prosperity") return "soulWinning";
-        return "confession";
-      });
-    }, 9000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const tabVariants = {
     hidden: { opacity: 0, y: 20 },

@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const recentServices = [
   {
     id: "x8Y3p9q",
-    youtubeId: "7D070TW4pXQ",
+    youtubeId: "jD3cNuq3t2I",
   },
   {
     id: "y5Z2r7s",
+    youtubeId: "8pvVZCGEKVU",
+  },
+  {
+    id: "z9W4t6v",
+    youtubeId: "7D070TW4pXQ",
+  },
+  {
+    id: "z9W4t6v",
     youtubeId: "5oF0XMKtNAA",
-  },
-  {
-    id: "z9W4t6v",
-    youtubeId: "UpAi4d5PuQk",
-  },
-  {
-    id: "z9W4t6v",
-    youtubeId: "d4U78Z6O13Y",
   },
 ];
 

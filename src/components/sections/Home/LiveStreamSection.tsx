@@ -13,6 +13,7 @@ const LiveStreamSection = () => {
     currentHour === 9 &&
     currentMinutes >= 0 &&
     currentMinutes < 60;
+
   const nextService = "Next Sunday at 9:00 AM";
 
   const youtubeChannelUrl =
